@@ -1,0 +1,12 @@
+*.sdf
+*.ncb
+*.opensdf
+*.log
+*.tmp
+*.suo
+*.user
+.DS_Store
+Thumbs.db
+[Dd]ebug/
+[Rr]elease/
+[Rr]elease_LTCG/
