@@ -102,6 +102,7 @@ std::vector<std::string> getIsoFiles(std::string const& path, bool isLegacy, boo
 	std::vector<std::string> isoFiles;
 
 	int hasIsoCount = 0;
+	int hasCsoCount = 0;
 	int hasCciCount = 0;
 
 	do {
@@ -114,20 +115,29 @@ std::vector<std::string> getIsoFiles(std::string const& path, bool isLegacy, boo
 		bool hasIso = endsWith(filename, ".iso");
 		if (hasIso == true)
 		{
-			hasIsoCount++;
+			hasIsoCount = 1;
 		}
 
 		bool hasCci = endsWith(filename, ".cci");
 		if (hasCci == true)
 		{
 			isCci = true;
-			hasCciCount++;
+			hasCciCount = 1;
 			if (isLegacy == true) {
 				continue;
 			}
 		}
 
-		if (hasIso == false && hasCci == false)
+		bool hasCso = endsWith(filename, ".cso");
+		if (hasCso == true)
+		{
+			hasCsoCount = 1;
+			if (isLegacy == false) {
+				continue;
+			}
+		}
+
+		if (hasIso == false && hasCci == false && hasCso == false)
 		{
 			continue;
 		}
@@ -146,7 +156,7 @@ std::vector<std::string> getIsoFiles(std::string const& path, bool isLegacy, boo
 	IoDeleteSymbolicLink(&sMountPoint);
 
 	// Dont allow a mix of cci / iso
-	if (hasIsoCount > 0 && hasCciCount > 0)
+	if ((hasIsoCount + hasCciCount + hasCsoCount) > 1)
 	{
 		isoFiles.empty();
 	}
