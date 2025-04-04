@@ -224,7 +224,7 @@ bool validateIsoArray(std::vector<std::string> const& isos)
 	return true;
 }
 
-void sortIsoArray(std::vector<std::string> isos)
+void sortIsoArray(std::vector<std::string> &isos)
 {
 	//sort array
 	bool swapped = true;
