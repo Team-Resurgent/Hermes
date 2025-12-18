@@ -1,13 +1,12 @@
 #pragma once
 
-#include "stdafx.h"
 #include <tchar.h>
 #include <stdio.h>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include "external.h"
+#include <Xtl.h>
 
 #define STATUS_SUCCESS 0
 #define STATUS_UNSUCCESSFUL -1
@@ -315,8 +314,6 @@ extern "C" {
 		ANSI_STRING SliceFile[MAX_IMAGE_SLICES];
 	} ATTACH_SLICE_DATA_LEGACY;
 
-	#define MAX_PATHNAME		256
-
 	LONG WINAPI IoCreateSymbolicLink(STRING*, STRING*);
 	LONG WINAPI IoDeleteSymbolicLink(STRING*);
 
@@ -328,4 +325,38 @@ extern "C" {
 	} XBOX_KRNL_VERSION, *PXBOX_KRNL_VERSION;
 
 	extern const PXBOX_KRNL_VERSION XboxKrnlVersion;
+
+    PVOID 
+    WINAPI
+    MmAllocateContiguousMemoryEx(
+        IN SIZE_T NumberOfBytes,
+        IN ULONG_PTR LowestAcceptableAddress,
+        IN ULONG_PTR HighestAcceptableAddress,
+        IN ULONG_PTR Alignment,
+        IN ULONG Protect
+    );
+
+    DWORD
+    WINAPI
+    MmPersistContiguousMemory(
+        IN PVOID BaseAddress,
+        IN SIZE_T NumberOfBytes,
+        IN BOOLEAN Persist
+    );
+
+    VOID
+    WINAPI
+    MmFreeContiguousMemory(
+        IN PVOID BaseAddress
+    );
+
+    DWORD
+    WINAPI
+    XWriteTitleInfoAndRebootA(
+        IN LPCSTR pszLaunchPath,
+        IN LPCSTR pszDDrivePath,
+        IN DWORD dwLaunchDataType,
+        IN DWORD dwTitleId,
+        IN PLAUNCH_DATA pLaunchData
+    );
 }

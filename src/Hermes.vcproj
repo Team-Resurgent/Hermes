@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="attach"
+	Name="Hermes"
 	ProjectGUID="{1B51F1F1-2C21-4688-AAFB-FE1CB50474CD}"
 	RootNamespace="Attach"
 	Keyword="XboxProj">
@@ -56,7 +56,8 @@
 				StackSize="65536"
 				IncludeDebugInfo="TRUE"
 				NoLibWarn="TRUE"
-				TitleImage="$(ProjectDir)Cerbios.bmp"/>
+				TitleName="Hermes"
+				TitleImage="$(ProjectDir)Logo.bmp"/>
 		</Configuration>
 		<Configuration
 			Name="Profile|Xbox"
@@ -108,7 +109,8 @@
 				StackSize="65536"
 				IncludeDebugInfo="TRUE"
 				NoLibWarn="TRUE"
-				TitleImage="$(ProjectDir)Cerbios.bmp"/>
+				TitleName="Hermes"
+				TitleImage="$(ProjectDir)Logo.bmp"/>
 		</Configuration>
 		<Configuration
 			Name="Profile_FastCap|Xbox"
@@ -161,7 +163,8 @@
 				StackSize="65536"
 				IncludeDebugInfo="TRUE"
 				NoLibWarn="TRUE"
-				TitleImage="$(ProjectDir)Cerbios.bmp"/>
+				TitleName="Hermes"
+				TitleImage="$(ProjectDir)Logo.bmp"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Xbox"
@@ -211,7 +214,8 @@
 			<Tool
 				Name="XboxImageTool"
 				StackSize="65536"
-				TitleImage="$(ProjectDir)Cerbios.bmp"/>
+				TitleName="Hermes"
+				TitleImage="$(ProjectDir)Logo.bmp"/>
 		</Configuration>
 		<Configuration
 			Name="Release_LTCG|Xbox"
@@ -262,7 +266,8 @@
 			<Tool
 				Name="XboxImageTool"
 				StackSize="65536"
-				TitleImage="$(ProjectDir)Cerbios.bmp"/>
+				TitleName="Hermes"
+				TitleImage="$(ProjectDir)Logo.bmp"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -273,33 +278,55 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
-				RelativePath=".\attach.cpp">
+				RelativePath=".\Debug.cpp">
 			</File>
 			<File
-				RelativePath=".\debug.cpp">
+				RelativePath=".\Debug.h">
 			</File>
 			<File
-				RelativePath=".\iso_checker.cpp">
+				RelativePath=".\Defines.h">
 			</File>
 			<File
-				RelativePath=".\stdafx.cpp">
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
-			<File
-				RelativePath=".\debug.h">
+				RelativePath=".\External.h">
 			</File>
 			<File
-				RelativePath=".\external.h">
+				RelativePath=".\Integers.h">
 			</File>
 			<File
-				RelativePath=".\iso_checker.h">
+				RelativePath=".\IsoAttacher.cpp">
 			</File>
 			<File
-				RelativePath=".\stdafx.h">
+				RelativePath=".\IsoAttacher.h">
+			</File>
+			<File
+				RelativePath=".\IsoChecker.cpp">
+			</File>
+			<File
+				RelativePath=".\IsoChecker.h">
+			</File>
+			<File
+				RelativePath=".\Main.cpp">
+			</File>
+			<File
+				RelativePath=".\Path.cpp">
+			</File>
+			<File
+				RelativePath=".\Path.h">
+			</File>
+			<File
+				RelativePath=".\StringUtility.cpp">
+			</File>
+			<File
+				RelativePath=".\StringUtility.h">
+			</File>
+			<File
+				RelativePath=".\Structs.h">
+			</File>
+			<File
+				RelativePath=".\Trainer.cpp">
+			</File>
+			<File
+				RelativePath=".\Trainer.h">
 			</File>
 		</Filter>
 	</Files>

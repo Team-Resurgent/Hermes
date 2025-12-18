@@ -1,9 +1,7 @@
 #pragma once
-#include "stdafx.h"
-#include <string>
 
-class debug
+class Debug
 {
 public:
-	static void print(const CHAR* buf, ...);
+	static void Print(const char* message, ...);
 };

@@ -1,15 +1,18 @@
 #include "debug.h"
+#include "Defines.h"
 
-//static function
-void debug::print(const CHAR* buf, ...)
+#include <xtl.h>
+#include <string>
+
+void Debug::Print(const char* message, ...)
 {
-    CHAR strBuffer[1024];
+    char buffer[1024];
 
     va_list arglist;
-    va_start( arglist, buf );
-    _vsnprintf( strBuffer, sizeof(strBuffer), buf, arglist );
-    va_end( arglist );
+    va_start(arglist, message);
+    _vsnprintf(buffer, DEBUG_PRINT_BUFFER, message, arglist);
+    va_end(arglist);
 
-    strBuffer[sizeof(strBuffer)-1] = '\0';
-    OutputDebugStringA( strBuffer );
+    buffer[DEBUG_PRINT_BUFFER - 1] = '\0';
+    OutputDebugStringA(buffer);
 }
