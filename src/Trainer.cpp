@@ -39,8 +39,9 @@ void Trainer::LaunchTrainerMenuIfExists()
         return;
     }
 
-    CUSTOM_LAUNCH_ISO_DATA launchData;
-    launchData.magic = CUSTOM_LAUNCH_ISO_MAGIC;
-    sprintf(launchData.mountPath, Path::GetAppPath().c_str());
-    XWriteTitleInfoAndRebootA("default.xbe", HERMES_PATH, LDT_TITLE, 0x5452ffff, (PLAUNCH_DATA)&launchData);
+    LAUNCH_DATA launchData;
+    CUSTOM_LAUNCH_ISO_DATA* customLaunchData = (CUSTOM_LAUNCH_ISO_DATA*)&launchData;
+    customLaunchData->magic = CUSTOM_LAUNCH_ISO_MAGIC;
+    sprintf(customLaunchData->mountPath, Path::GetAppPath().c_str());
+    XWriteTitleInfoAndRebootA("default.xbe", HERMES_PATH, LDT_TITLE, 0x5452ffff, &launchData);
 }
